@@ -49,7 +49,7 @@ export default function HighRisk() {
 
         {/* การ์ดสรุป */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-white rounded-2xl p-4 border border-gray-200">
+          <div className="bg-white rounded-2xl p-4 border border-gray-200 animate-fade-in-up delay-50">
             <div className="flex items-center gap-2 mb-2">
               <div className="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center">
                 <AlertTriangle size={16} className="text-red-500" />
@@ -58,7 +58,7 @@ export default function HighRisk() {
             <p className="text-2xl font-bold text-red-600">{highCount}</p>
             <p className="text-xs text-[#999]">เสี่ยงสูง</p>
           </div>
-          <div className="bg-white rounded-2xl p-4 border border-gray-200">
+          <div className="bg-white rounded-2xl p-4 border border-gray-200 animate-fade-in-up delay-100">
             <div className="flex items-center gap-2 mb-2">
               <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center">
                 <ShieldAlert size={16} className="text-orange-500" />
@@ -67,13 +67,13 @@ export default function HighRisk() {
             <p className="text-2xl font-bold text-orange-600">{moderateCount}</p>
             <p className="text-xs text-[#999]">เสี่ยงปานกลาง</p>
           </div>
-          <div className="bg-white rounded-2xl p-4 border border-gray-200">
+          <div className="bg-white rounded-2xl p-4 border border-gray-200 animate-fade-in-up delay-150">
             <p className="text-2xl font-bold text-[#333]">
               {highRiskPatients.filter((p) => p.ga < 34).length}
             </p>
             <p className="text-xs text-[#999]">GA น้อยกว่า 34 สัปดาห์</p>
           </div>
-          <div className="bg-white rounded-2xl p-4 border border-gray-200">
+          <div className="bg-white rounded-2xl p-4 border border-gray-200 animate-fade-in-up delay-200">
             <p className="text-2xl font-bold text-[#333]">
               {highRiskPatients.filter((p) => p.referStatus).length}
             </p>
@@ -111,7 +111,7 @@ export default function HighRisk() {
         </div>
 
         {/* ตาราง */}
-        <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+        <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden animate-fade-in-up delay-300">
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>

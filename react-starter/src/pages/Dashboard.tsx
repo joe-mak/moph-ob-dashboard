@@ -107,11 +107,12 @@ export default function Dashboard() {
 
         {/* การ์ดสรุป */}
         <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
-          {statCards.map((card) => (
+          {statCards.map((card, i) => (
             <Link
               key={card.label}
               to={card.link}
-              className="group bg-white rounded-2xl p-4 border border-gray-200 hover:shadow-lg hover:shadow-gray-200/50 transition-all"
+              style={{ animationDelay: `${i * 60}ms` }}
+              className="group bg-white rounded-2xl p-4 border border-gray-200 hover:shadow-lg hover:shadow-gray-200/50 hover:-translate-y-0.5 transition-all animate-fade-in-up"
             >
               <div className="flex items-start justify-between mb-3">
                 <div
@@ -133,7 +134,7 @@ export default function Dashboard() {
         </div>
 
         {/* แนวโน้มการคลอด + Risk Distribution */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 animate-fade-in-up delay-200">
           <div className="lg:col-span-2 bg-white rounded-2xl p-5 border border-gray-200">
             <div className="flex items-center justify-between mb-4">
               <div>
@@ -199,7 +200,7 @@ export default function Dashboard() {
         </div>
 
         {/* CPD Distribution + Delivery Outcome + Hospital Load */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 animate-fade-in-up delay-300">
           {/* CPD Distribution */}
           <div className="bg-white rounded-2xl p-5 border border-gray-200">
             <h3 className="text-sm font-semibold text-[#333] mb-1">CPD Score Distribution</h3>
@@ -269,7 +270,7 @@ export default function Dashboard() {
         </div>
 
         {/* Hub-Spoke Hospital Network */}
-        <div className="bg-white rounded-2xl p-5 border border-gray-200">
+        <div className="bg-white rounded-2xl p-5 border border-gray-200 animate-fade-in-up delay-350">
           <div className="flex items-center justify-between mb-4">
             <div>
               <h3 className="text-sm font-semibold text-[#333]">เครือข่ายโรงพยาบาล (Hub-Spoke)</h3>
@@ -280,10 +281,11 @@ export default function Dashboard() {
             </Link>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-            {hospitalStats.map((h) => (
+            {hospitalStats.map((h, i) => (
               <div
                 key={h.code}
-                className={`rounded-xl p-3 border transition-all ${
+                style={{ animationDelay: `${400 + i * 40}ms` }}
+                className={`rounded-xl p-3 border transition-all animate-scale-in ${
                   h.online
                     ? "border-green-200 bg-green-50/30"
                     : "border-red-200 bg-red-50/30"
@@ -300,7 +302,7 @@ export default function Dashboard() {
                     {h.level}
                   </span>
                   {h.online ? (
-                    <Wifi size={14} className="text-green-500" />
+                    <Wifi size={14} className="text-green-500 animate-pulse" />
                   ) : (
                     <WifiOff size={14} className="text-red-400" />
                   )}
