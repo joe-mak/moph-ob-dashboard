@@ -1,17 +1,17 @@
-# MOPH OB Dashboard
+# ระบบเฝ้าระวังห้องคลอดระดับจังหวัด (MOPH OB Dashboard)
 
-ระบบเฝ้าระวังห้องคลอดระดับจังหวัด — Provincial Labor Room Monitoring System
+ระบบติดตามและเฝ้าระวังการดูแลมารดาและการคลอดระดับจังหวัด สำหรับกระทรวงสาธารณสุข
 
-**Live:** https://joe-mak.github.io/moph-ob-dashboard/
+**เว็บไซต์:** https://joe-mak.github.io/moph-ob-dashboard/
 
 ---
 
-## Tech Stack
+## เทคโนโลยีที่ใช้
 
-| Layer | Library |
+| ส่วน | ไลบรารี |
 |---|---|
 | Framework | React 18 + TypeScript |
-| Build | Vite |
+| Build Tool | Vite |
 | Styling | Tailwind CSS v4 |
 | Routing | React Router (HashRouter) |
 | Charts | Recharts |
@@ -21,20 +21,20 @@
 
 ---
 
-## Pages
+## หน้าในระบบ
 
-| Route | Description |
+| Route | คำอธิบาย |
 |---|---|
-| `/` | Dashboard — provincial overview, charts, hospital network |
-| `/labor-room` | Labor Room — province → hospital → patient drill-down |
-| `/high-risk` | High Risk — filtered list of high/moderate risk pregnancies |
-| `/hospital-summary` | Hospital Summary — full hospital stats table |
-| `/patient/:cid` | Patient Detail |
-| `/anc/:cid` | ANC History |
+| `/` | แดชบอร์ด — ภาพรวมจังหวัด, กราฟ, เครือข่ายโรงพยาบาล |
+| `/labor-room` | ห้องคลอด — เจาะลึกจังหวัด → โรงพยาบาล → ผู้ป่วย |
+| `/high-risk` | ความเสี่ยงสูง — รายชื่อหญิงตั้งครรภ์ที่มีความเสี่ยง |
+| `/hospital-summary` | สรุปรายโรงพยาบาล — ตารางสถิติโรงพยาบาลทั้งหมด |
+| `/patient/:cid` | รายละเอียดผู้ป่วย |
+| `/anc/:cid` | ประวัติฝากครรภ์ |
 
 ---
 
-## Getting Started
+## วิธีติดตั้งและรัน
 
 ```bash
 cd react-starter
@@ -42,7 +42,7 @@ npm install
 npm run dev
 ```
 
-Build for production:
+Build สำหรับ Production:
 
 ```bash
 npm run build
@@ -50,72 +50,72 @@ npm run build
 
 ---
 
-## Deployment
+## การ Deploy
 
-Pushes to `main` automatically trigger GitHub Actions to build and deploy to GitHub Pages.
+เมื่อ push ขึ้น branch `main` ระบบ GitHub Actions จะ build และ deploy ไปยัง GitHub Pages โดยอัตโนมัติ
 
-The Vite `base` is set to `/moph-ob-dashboard/` in `vite.config.ts`.
-HashRouter is used so all routes resolve correctly on static hosting.
+- Vite `base` ตั้งค่าเป็น `/moph-ob-dashboard/` ใน `vite.config.ts`
+- ใช้ HashRouter เพื่อให้ทุก route ทำงานได้บน static hosting
 
 ---
 
-## Changelog
+## บันทึกการเปลี่ยนแปลง
 
-### [0.3.0] — 2026-03-12
+### [0.3.0] — 13 มีนาคม 2569
 
-#### Added
-- **Logo** — replaced Baby icon with `Logo_MOPHOB_1.png` in sidebar and browser favicon
-- **Animation system** — CSS keyframe animations in `index.css`:
+#### เพิ่มใหม่
+- **โลโก้** — เปลี่ยนจากไอคอน Baby เป็นไฟล์ `Logo_MOPHOB_1.png` ใน Sidebar และ Favicon ของเบราว์เซอร์
+- **ระบบ Animation** — เพิ่ม CSS keyframe animations ใน `index.css`:
   - `fadeInUp`, `fadeIn`, `slideInLeft`, `scaleIn`, `pulseDot`
-  - Delay utility classes `.delay-50` through `.delay-500`
-- **Page transitions** — every route change triggers a smooth `fadeInUp` via `key={location.pathname}`
-- **Staggered entrance** — sidebar nav items, Dashboard stat cards, and hospital cards animate in sequence
+  - Utility class สำหรับ delay: `.delay-50` ถึง `.delay-500`
+- **Page Transition** — ทุกครั้งที่เปลี่ยนหน้า จะมี animation `fadeInUp` ผ่าน `key={location.pathname}`
+- **Staggered Entrance** — รายการเมนู Sidebar, การ์ดสถิติ Dashboard และการ์ดโรงพยาบาลแสดงผลทยอยกัน
 
-#### Changed
-- **Sidebar redesign** — light pink background (`#FFF0F5`) with rose borders; active nav item uses white card with pink text and drop shadow
-- **Header alignment** — sidebar logo section and top header both fixed at `h-16` for perfect horizontal alignment
-- **Stat cards** — `hover:-translate-y-0.5` lift effect on hover
-- **Online status** — Wifi icon pulses continuously for online hospitals
-
----
-
-### [0.2.1] — 2026-03-12
-
-#### Changed
-- Browser tab title updated to **MOPH OB Dashboard**
-
-#### Fixed
-- White page on GitHub Pages — switched from `BrowserRouter` to `HashRouter`
+#### เปลี่ยนแปลง
+- **ออกแบบ Sidebar ใหม่** — พื้นหลังสีชมพูอ่อน (`#FFF0F5`) พร้อมขอบสีชมพูอ่อน; เมนูที่เลือกอยู่จะแสดงเป็นกล่องสีขาวพื้นชมพู
+- **จัดแนว Header** — ส่วนโลโก้ Sidebar และ Header หลักกำหนดความสูงเท่ากันที่ `h-16`
+- **การ์ดสถิติ** — เพิ่มเอฟเฟกต์ยกขึ้นเล็กน้อยเมื่อ hover (`hover:-translate-y-0.5`)
+- **สถานะออนไลน์** — ไอคอน Wifi กระพริบต่อเนื่องสำหรับโรงพยาบาลที่ออนไลน์
 
 ---
 
-### [0.2.0] — 2026-03-12
+### [0.2.1] — 12 มีนาคม 2569
 
-#### Added
-- GitHub Actions workflow (`.github/workflows/deploy.yml`) — auto-deploys to GitHub Pages on push to `main`
-- Vite `base` config set to `/moph-ob-dashboard/`
+#### เปลี่ยนแปลง
+- ชื่อแท็บเบราว์เซอร์เปลี่ยนเป็น **MOPH OB Dashboard**
 
-#### Fixed
-- Workflow file moved to repo root `.github/` so GitHub picks it up
-- `cache-dependency-path` and `working-directory` set for monorepo structure
+#### แก้ไขบั๊ก
+- หน้าจอขาวบน GitHub Pages — เปลี่ยนจาก `BrowserRouter` เป็น `HashRouter` เพื่อให้ route ทำงานบน static hosting ได้ถูกต้อง
 
 ---
 
-### [0.1.0] — 2026-03-10
+### [0.2.0] — 12 มีนาคม 2569
 
-#### Added
-- Initial MOPH OB Dashboard scaffold
-- Pages: Dashboard, Labor Room, High Risk, Hospital Summary, Patient Detail, ANC History
-- Sticky sidebar with Thai navigation labels
-- Sidebar fixed at `100vh`, page content scrolls independently
-- Scrollbar hidden at rest, reveals pink on hover
-- Thailand province map with drill-down interaction
-- Mock data for provinces, hospitals, and patients
-- Google Sans + Noto Sans Thai font stack
-- MUI, HeroUI, and Radix UI providers
+#### เพิ่มใหม่
+- GitHub Actions workflow (`.github/workflows/deploy.yml`) — build และ deploy ไปยัง GitHub Pages อัตโนมัติเมื่อ push ขึ้น `main`
+- กำหนด Vite `base` เป็น `/moph-ob-dashboard/`
+
+#### แก้ไขบั๊ก
+- ย้ายไฟล์ workflow ไปไว้ที่ root `.github/` เพื่อให้ GitHub Actions ตรวจพบ
+- กำหนด `cache-dependency-path` และ `working-directory` สำหรับโครงสร้าง monorepo
 
 ---
 
-## License
+### [0.1.0] — 10 มีนาคม 2569
 
-Internal — Ministry of Public Health Thailand
+#### เพิ่มใหม่
+- โครงสร้างเริ่มต้น MOPH OB Dashboard
+- หน้าทั้งหมด: แดชบอร์ด, ห้องคลอด, ความเสี่ยงสูง, สรุปรายโรงพยาบาล, รายละเอียดผู้ป่วย, ประวัติ ANC
+- Sidebar ตรึงความสูงเต็มหน้าจอ พร้อมเมนูภาษาไทย
+- เนื้อหาหน้าเลื่อนแยกอิสระ ไม่กระทบ Sidebar
+- Scrollbar ซ่อนตามปกติ แสดงสีชมพูเมื่อ hover
+- แผนที่จังหวัดไทยพร้อมระบบเจาะลึกข้อมูล
+- ข้อมูลจำลองสำหรับจังหวัด, โรงพยาบาล และผู้ป่วย
+- ฟอนต์ Google Sans + Noto Sans Thai
+- ติดตั้ง MUI, HeroUI และ Radix UI
+
+---
+
+## สิทธิ์การใช้งาน
+
+ใช้งานภายใน — กระทรวงสาธารณสุข ประเทศไทย
